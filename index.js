@@ -28,7 +28,10 @@ app.get("/", (req, res) => {
 // Contact View Route
 app.get("/contact/:id/view", (req, res) => {
   const newData = data.find(person => person.id === Number(req.params.id));
-  res.render("view", { person: newData });
+  if (newData) return res.render("view", { person: newData });
+  return res.status(400).render("error", {
+    Error: { code: 400, status: "Bad Request", message: "Contact not found!" }
+  });
 });
 
 // Delete Contact Route
@@ -70,7 +73,10 @@ app.post("/contact/save", urlencodedParser, (req, res) => {
 // Edit Contact Route
 app.get("/contact/:id/edit", (req, res) => {
   const newData = data.find(person => person.id === Number(req.params.id));
-  res.render("update", { person: newData });
+  if (newData) return res.render("update", { person: newData });
+  return res.status(400).render("error", {
+    Error: { code: 400, status: "Bad Request", message: "Contact not found!" }
+  });
 });
 
 // Update Contact Route
@@ -94,13 +100,19 @@ app.post("/contact/search", urlencodedParser, (req, res) => {
   const searched = data.filter(person => {
     const personLC = person.name.toLowerCase();
     const searchLC = req.body.search.toLowerCase();
-    return personLC.indexOf(searchLC) >= 0;
+    return personLC.includes(searchLC);
   });
   if (req.body.search === "") {
     res.redirect("/");
   } else {
     res.render("index", { data: searched });
   }
+});
+
+app.get("*", (req, res) => {
+  res.status(404).render("error", {
+    Error: { code: 404, status: "Not Found", message: "Page Not Found!" }
+  });
 });
 
 // Listen to Port 3000
