@@ -109,6 +109,7 @@ app.post("/contact/search", urlencodedParser, (req, res) => {
   }
 });
 
+// 404 Page Not Found Route
 app.get("*", (req, res) => {
   res.status(404).render("error", {
     Error: { code: 404, status: "Not Found", message: "Page Not Found!" }
