@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= person.name %> | Contact App</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <main class="container">
+      <!-- Contact Thumbnail -->
+      <section class="thumbnail-details">
+        <p class="p-10"><%= person.name || `Unknown` %></p>
+
+        <a href="/contact/<%= person.id %>/edit" title="Edit">
+          <section id="add-photo" class="row">
+            <svg viewBox="0 0 512 512" class="camera-svg">
+              <path
+                d="M290.74 93.24l128.02 128.02-277.99 277.99-114.14 12.6C11.35 513.54-1.56 500.62.14 485.34l12.7-114.22 277.9-277.88zm207.2-19.06l-60.11-60.11c-18.75-18.75-49.16-18.75-67.91 0l-56.55 56.55 128.02 128.02 56.55-56.55c18.75-18.76 18.75-49.16 0-67.91z"
+              />
+            </svg>
+          </section>
+        </a>
+      </section>
+      <section class="thumbnail-holder">
+        <img src="<%= person.avatar || `/user.svg` %>" alt="profile avatar" />
+      </section>
+
+      <!-- Contact Details -->
+      <main class="p-10">
+        <% if(person.mobile){ %>
+        <section class="row my-10">
+          <section>
+            <p class="value"><%= person.mobile %></p>
+            <p class="property">Mobile</p>
+          </section>
+          <section>
+            <a class="details-btn" href="tel:<%= person.mobile %>">
+              <svg id="call" class="details-svg" viewBox="0 0 512 512">
+                <path
+                  d="M493.4 24.6l-104-24c-11.3-2.6-22.9 3.3-27.5 13.9l-48 112c-4.2 9.8-1.4 21.3 6.9 28l60.6 49.6c-36 76.7-98.9 140.5-177.2 177.2l-49.6-60.6c-6.8-8.3-18.2-11.1-28-6.9l-112 48C3.9 366.5-2 378.1.6 389.4l24 104C27.1 504.2 36.7 512 48 512c256.1 0 464-207.5 464-464 0-11.2-7.7-20.9-18.6-23.4z"
+                />
+              </svg>
+            </a>
+            <a class="details-btn" href="sms:<%= person.mobile %>">
+              <svg id="text-msg" class="details-svg" viewBox="0 0 512 512">
+                <path
+                  d="M256 32C114.6 32 0 125.1 0 240c0 49.6 21.4 95 57 130.7C44.5 421.1 2.7 466 2.2 466.5c-2.2 2.3-2.8 5.7-1.5 8.7S4.8 480 8 480c66.3 0 116-31.8 140.6-51.4 32.7 12.3 69 19.4 107.4 19.4 141.4 0 256-93.1 256-208S397.4 32 256 32zM128 272c-17.7 0-32-14.3-32-32s14.3-32 32-32 32 14.3 32 32-14.3 32-32 32zm128 0c-17.7 0-32-14.3-32-32s14.3-32 32-32 32 14.3 32 32-14.3 32-32 32zm128 0c-17.7 0-32-14.3-32-32s14.3-32 32-32 32 14.3 32 32-14.3 32-32 32z"
+                />
+              </svg>
+            </a>
+          </section>
+        </section>
+        <hr />
+        <% } %> <% if(person.tel){ %>
+        <section class="row my-10">
+          <section>
+            <p class="value"><%= person.tel %></p>
+            <p class="property">Tel</p>
+          </section>
+          <section>
+            <a class="details-btn" href="tel:<%= person.tel %>">
+              <svg id="call" class="details-svg" viewBox="0 0 512 512">
+                <path
+                  d="M493.4 24.6l-104-24c-11.3-2.6-22.9 3.3-27.5 13.9l-48 112c-4.2 9.8-1.4 21.3 6.9 28l60.6 49.6c-36 76.7-98.9 140.5-177.2 177.2l-49.6-60.6c-6.8-8.3-18.2-11.1-28-6.9l-112 48C3.9 366.5-2 378.1.6 389.4l24 104C27.1 504.2 36.7 512 48 512c256.1 0 464-207.5 464-464 0-11.2-7.7-20.9-18.6-23.4z"
+                />
+              </svg>
+            </a>
+            <a class="details-btn" href="sms:<%= person.tel %>">
+              <svg id="text-msg" class="details-svg" viewBox="0 0 512 512">
+                <path
+                  d="M256 32C114.6 32 0 125.1 0 240c0 49.6 21.4 95 57 130.7C44.5 421.1 2.7 466 2.2 466.5c-2.2 2.3-2.8 5.7-1.5 8.7S4.8 480 8 480c66.3 0 116-31.8 140.6-51.4 32.7 12.3 69 19.4 107.4 19.4 141.4 0 256-93.1 256-208S397.4 32 256 32zM128 272c-17.7 0-32-14.3-32-32s14.3-32 32-32 32 14.3 32 32-14.3 32-32 32zm128 0c-17.7 0-32-14.3-32-32s14.3-32 32-32 32 14.3 32 32-14.3 32-32 32zm128 0c-17.7 0-32-14.3-32-32s14.3-32 32-32 32 14.3 32 32-14.3 32-32 32z"
+                />
+              </svg>
+            </a>
+          </section>
+        </section>
+        <hr />
+        <% } %> <% if(person.email){ %>
+        <section class="row my-10">
+          <section>
+            <p class="value"><%= person.email %></p>
+            <p class="property">Email</p>
+          </section>
+          <section>
+            <a class="details-btn" href="mailto:<%= person.email %>">
+              <svg id="email" class="details-svg" viewBox="0 0 512 512">
+                <path
+                  d="M502.3 190.8c3.9-3.1 9.7-.2 9.7 4.7V400c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V195.6c0-5 5.7-7.8 9.7-4.7 22.4 17.4 52.1 39.5 154.1 113.6 21.1 15.4 56.7 47.8 92.2 47.6 35.7.3 72-32.8 92.3-47.6 102-74.1 131.6-96.3 154-113.7zM256 320c23.2.4 56.6-29.2 73.4-41.4 132.7-96.3 142.8-104.7 173.4-128.7 5.8-4.5 9.2-11.5 9.2-18.9v-19c0-26.5-21.5-48-48-48H48C21.5 64 0 85.5 0 112v19c0 7.4 3.4 14.3 9.2 18.9 30.6 23.9 40.7 32.4 173.4 128.7 16.8 12.2 50.2 41.8 73.4 41.4z"
+                />
+              </svg>
+            </a>
+          </section>
+        </section>
+        <hr />
+        <% } %> <% if(person.address){ %>
+        <section class="row my-10">
+          <section>
+            <p class="value"><%= person.address %></p>
+            <p class="property">Address</p>
+          </section>
+          <section>
+            <a class="details-btn" href="#">
+              <svg id="map-marked" class="details-svg" viewBox="0 0 512 512">
+                <path
+                  d="M288 0c-69.59 0-126 56.41-126 126 0 56.26 82.35 158.8 113.9 196.02 6.39 7.54 17.82 7.54 24.2 0C331.65 284.8 414 182.26 414 126 414 56.41 357.59 0 288 0zm0 168c-23.2 0-42-18.8-42-42s18.8-42 42-42 42 18.8 42 42-18.8 42-42 42zM20.12 215.95A32.006 32.006 0 0 0 0 245.66v250.32c0 11.32 11.43 19.06 21.94 14.86L160 448V214.92c-8.84-15.98-16.07-31.54-21.25-46.42L20.12 215.95zM288 359.67c-14.07 0-27.38-6.18-36.51-16.96-19.66-23.2-40.57-49.62-59.49-76.72v182l192 64V266c-18.92 27.09-39.82 53.52-59.49 76.72-9.13 10.77-22.44 16.95-36.51 16.95zm266.06-198.51L416 224v288l139.88-55.95A31.996 31.996 0 0 0 576 426.34V176.02c0-11.32-11.43-19.06-21.94-14.86z"
+                />
+              </svg>
+            </a>
+          </section>
+        </section>
+        <hr />
+        <% } %>
+      </main>
+    </main>
+  </body>
+</html>

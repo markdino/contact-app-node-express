@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "avatar": "/dino.jpg",
+    "name": "Mark Dino Pelonia",
+    "mobile": "09462909678",
+    "tel": "8673445",
+    "email": "markdinopelonia447@gmail.com",
+    "address": "Lavezares, Northern Samar"
+  },
+  {
+    "id": 2,
+    "name": "Jerome Estiller",
+    "mobile": "09123456789",
+    "email": "jerome@jerome.com"
+  },
+  {
+    "id": 3,
+    "name": "Mark Clif Turla",
+    "mobile": "091298765432",
+    "address": "Rosario, Northern Samar"
+  },
+  {
+    "id": 4,
+    "name": "Jefte Corona",
+    "mobile": "091020304050",
+    "address": "Allen, Northern Samar"
+  }
+]
