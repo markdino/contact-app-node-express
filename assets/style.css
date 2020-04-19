@@ -352,3 +352,21 @@ a {
 .modal-container .buttons button:hover {
   background-color: #dee2e6;
 }
+
+/* Error */
+.error {
+  padding: 40px 20px;
+}
+
+.error h1,
+.error h4 {
+  color: rgb(196, 196, 196);
+  margin: 0px;
+}
+
+.error h1 {
+  font-size: 5rem;
+}
+.error h4 {
+  font-size: 1.7rem;
+}
